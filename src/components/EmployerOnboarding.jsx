@@ -21,7 +21,6 @@ const EmployerOnboarding = () => {
   return (
     <div className="bg-white min-h-screen pt-6 px-6">
       
-      {/* Header */}
       <div className="flex flex-col mb-6">
         <div className="flex items-center gap-2">
           <span
@@ -37,14 +36,12 @@ const EmployerOnboarding = () => {
         <p className="text-gray-600 mt-1">Employer</p>
       </div>
 
-      {/* Main Card */}
       <div className="bg-white border rounded-xl p-8 max-w-3xl">
         
         <h2 className="text-xl font-semibold text-gray-800 mb-6">
           Enter PAN / TAN / TIN
         </h2>
 
-        {/* Radio buttons */}
         <div className="flex gap-6 mb-6">
           {["PAN", "TAN", "TIN"].map((type) => (
             <label key={type} className="flex items-center gap-2 cursor-pointer">
@@ -60,7 +57,6 @@ const EmployerOnboarding = () => {
           ))}
         </div>
 
-        {/* Input */}
         <div className="mb-6">
           <label className="block font-medium text-gray-700 mb-2">
             Enter {idType} *
@@ -76,7 +72,6 @@ const EmployerOnboarding = () => {
           />
         </div>
 
-        {/* Verify button */}
         <button
           onClick={handleVerify}
           className="bg-orange-400 hover:bg-orange-500 text-black font-semibold px-8 py-2 rounded-md"

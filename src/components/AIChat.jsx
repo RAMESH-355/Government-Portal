@@ -25,39 +25,65 @@ const AIChat = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed bottom-20 right-6 w-96 h-[540px] bg-white rounded-xl shadow-2xl z-50 flex flex-col overflow-hidden">
+    <div
+      className="
+        fixed
+        bottom-16
+        sm:bottom-20
+        right-0
+        sm:right-6
+        w-full
+        sm:w-96
+        h-[85vh]
+        sm:h-[540px]
+        bg-white
+        rounded-t-xl
+        sm:rounded-xl
+        shadow-2xl
+        z-50
+        flex
+        flex-col
+        overflow-hidden
+      "
+    >
 
       <div className="bg-gradient-to-r from-green-600 to-yellow-500 text-white px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/038/130/530/small/icon-for-customer-service-vector.jpg"
-            className="w-9 h-9 rounded-full"
+            className="w-8 h-8 rounded-full"
             alt="Vidhya"
           />
-          <h3 className="font-semibold">Ask Vidhya</h3>
+          <h3 className="font-semibold text-sm sm:text-base">
+            Ask Vidhya
+          </h3>
         </div>
-        <button onClick={onClose} className="text-xl font-bold">✕</button>
+        <button
+          onClick={onClose}
+          className="text-xl font-bold"
+        >
+          ✕
+        </button>
       </div>
 
-      <div className="flex-1 px-4 py-3 space-y-4 overflow-y-auto bg-gray-50">
-
+      <div className="flex-1 px-3 sm:px-4 py-3 space-y-4 overflow-y-auto bg-gray-50">
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`flex items-start gap-2 ${
-              msg.from === "user" ? "justify-end" : ""
+            className={`flex gap-2 ${
+              msg.from === "user" ? "justify-end" : "justify-start"
             }`}
           >
             {msg.from === "bot" && (
               <img
                 src="https://static.vecteezy.com/system/resources/thumbnails/038/130/530/small/icon-for-customer-service-vector.jpg"
-                className="w-8 h-8 rounded-full"
+                className="w-7 h-7 rounded-full mt-1"
                 alt="bot"
               />
             )}
 
             <div
-              className={`max-w-[75%] p-3 rounded-lg text-sm leading-relaxed ${
+              className={`max-w-[75%] px-3 py-2 rounded-lg text-sm leading-relaxed ${
                 msg.from === "user"
                   ? "bg-green-600 text-white rounded-br-none"
                   : "bg-white border rounded-bl-none"
@@ -67,11 +93,12 @@ const AIChat = ({ onClose }) => {
             </div>
           </div>
         ))}
-        
       </div>
 
-      <div className="px-4 py-2">
-        <p className="text-sm font-semibold text-gray-600 mb-2">Suggestions:</p>
+      <div className="px-3 sm:px-4 py-2">
+        <p className="text-sm font-semibold text-gray-600 mb-2">
+          Suggestions:
+        </p>
 
         {[
           "Show me available courses in IT sector",
@@ -80,7 +107,20 @@ const AIChat = ({ onClose }) => {
         ].map((text, i) => (
           <div
             key={i}
-            className="border border-green-600 text-green-700 rounded-lg px-3 py-2 mb-2 text-sm cursor-pointer hover:bg-green-600 hover:text-white transition"
+            className="
+              border
+              border-green-600
+              text-green-700
+              rounded-lg
+              px-3
+              py-2
+              mb-2
+              text-sm
+              cursor-pointer
+              hover:bg-green-600
+              hover:text-white
+              transition
+            "
           >
             {text}
           </div>
@@ -92,12 +132,28 @@ const AIChat = ({ onClose }) => {
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Ask me about courses, assessments, or training programs..."
-          className="flex-1 border rounded-full px-4 py-2 focus:outline-none"
+          placeholder="Ask me about courses, jobs, assessments..."
+          className="
+            flex-1
+            border
+            rounded-full
+            px-4
+            py-2
+            focus:outline-none
+          "
         />
         <button
           onClick={handleSend}
-          className="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center"
+          className="
+            bg-green-600
+            text-white
+            w-10
+            h-10
+            rounded-full
+            flex
+            items-center
+            justify-center
+          "
         >
           ➜
         </button>

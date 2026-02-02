@@ -55,60 +55,76 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white min-h-screen pt-6 px-6">
+  <div className="bg-white min-h-screen pt-4 sm:pt-6 px-4 sm:px-6">
 
-      <div className="flex items-center gap-2 mb-6">
-        <span
-          className="text-3xl font-bold cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          ←
-        </span>
-        <h1 className="text-2xl font-bold text-gray-800">Services</h1>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {servicesData.map((service) => (
-          <div
-            key={service.id}
-            className="border-2 border-green-600 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition bg-white flex flex-col"
-          >
-
-            <img
-              src={service.image}
-              alt={service.title}
-              className="h-56 w-full object-cover"
-            />
-
-            <div className="p-5 flex flex-col flex-1">
-              <h2 className="text-lg font-bold text-gray-900 text-center">
-                {service.title}
-              </h2>
-
-              {service.subtitle && (
-                <p className="text-sm text-center text-gray-600 mt-1">
-                  {service.subtitle}
-                </p>
-              )}
-
-              <p className="text-sm text-gray-700 text-center mt-3 flex-1">
-                {service.description}
-              </p>
-
-              <button
-                onClick={() =>
-                  navigate("/servicespage")
-                }
-                className="mt-5 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-md"
-              >
-                {service.buttonText}
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="flex items-center gap-3 mb-6">
+      <span
+        className="text-2xl sm:text-3xl font-bold cursor-pointer"
+        onClick={() => navigate("/")}
+      >
+        ←
+      </span>
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
+        Services
+      </h1>
     </div>
-  );
-};
 
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {servicesData.map((service) => (
+        <div
+          key={service.id}
+          className="
+            border-2 border-green-600
+            rounded-2xl
+            overflow-hidden
+            shadow-sm
+            hover:shadow-lg
+            transition
+            bg-white
+            flex
+            flex-col
+          "
+        >
+          <img
+            src={service.image}
+            alt={service.title}
+            className="h-40 sm:h-48 w-full object-cover"
+          />
+
+          <div className="p-4 sm:p-5 flex flex-col flex-1">
+            <h2 className="text-base sm:text-lg font-bold text-gray-900 text-center">
+              {service.title}
+            </h2>
+
+            {service.subtitle && (
+              <p className="text-xs sm:text-sm text-center text-gray-600 mt-1">
+                {service.subtitle}
+              </p>
+            )}
+
+            <p className="text-sm text-gray-700 text-center mt-3 flex-1">
+              {service.description}
+            </p>
+
+            <button
+              onClick={() => navigate("/servicespage")}
+              className="
+                mt-5
+                bg-green-700
+                hover:bg-green-800
+                text-white
+                font-semibold
+                py-2
+                rounded-md
+              "
+            >
+              {service.buttonText}
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+};
 export default Services;

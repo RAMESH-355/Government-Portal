@@ -72,68 +72,135 @@ const JobOpportunities = () => {
 
 
   return (
-    <div className = "bg-white min-h-screen pt-6 px-6 ">
+  <div className="bg-white min-h-screen pt-4 sm:pt-6 px-4 sm:px-6">
 
-      <div className = "flex flex-col mb-6"> 
-        <div className="flex flex-row"> 
-          <h1 className="font-bold text-3xl text-gray-800 hover:cursor-pointer items-center justify-center" onClick={() => navigate("/")}> ← </h1>
-          <h1 className="font-bold text-2xl text-gray-800 ml-2">Job Opportunities ( Total Jobs: 73010 )</h1>
-        </div>
-        <p className="mt-0.5 text-gray-800 text-xl font-medium"> Opportunities </p>
+    <div className="flex flex-col mb-4 sm:mb-6">
+      <div className="flex items-center gap-3">
+        <span
+          className="text-2xl sm:text-3xl font-bold cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          ←
+        </span>
+        <h1 className="font-bold text-lg sm:text-2xl text-gray-800">
+          Job Opportunities ( Total Jobs: 73010 )
+        </h1>
       </div>
+      <p className="text-gray-800 text-sm sm:text-xl font-medium mt-1">
+        Opportunities
+      </p>
+    </div>
 
-      <div className = "flex flex-row gap-6 mb-6">
-        {jobSummary.map((job) => (
-          <div key={job.id} className = {`flex flex-col justify-center rounded-lg p-4 w-80 ${job.bg} hover:shadow-lg hover:cursor-pointer transition`}>
-            
-            <h2 className = "text-xl font-bold text-black">{job.title}</h2> 
-            <h2 className = "text-md font-md text-gray-800 mt-5"> Number of Positions </h2>
-            <p className = "text-md font-bold text-2xl text-gray-800">{job.count}</p>
+    <div className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-5
+      gap-4
+      mb-6
+    ">
+      {jobSummary.map((job) => (
+        <div
+          key={job.id}
+          className={`
+            rounded-lg
+            p-4
+            ${job.bg}
+            hover:shadow-lg
+            transition
+          `}
+        >
+          <h2 className="text-base sm:text-xl font-bold text-black">
+            {job.title}
+          </h2>
 
+          <p className="text-sm sm:text-md text-gray-800 mt-3">
+            Number of Positions
+          </p>
+
+          <p className="text-xl sm:text-2xl font-bold text-gray-800">
+            {job.count}
+          </p>
         </div>
-        ))}
+      ))}
+    </div>
+
+    <div className="
+      flex
+      flex-col
+      sm:flex-row
+      gap-3
+      sm:gap-10
+      items-start
+      sm:items-center
+      mb-6
+    ">
+      <h2 className="font-semibold text-base sm:text-lg text-gray-700">
+        Select Your Sector
+      </h2>
+
+      <div className="relative w-full sm:w-72">
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full border rounded-md pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
+        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+          🔍
+        </span>
       </div>
+    </div>
 
-      <div className="flex flex-row gap-10 items-center mb-6 ml-6">
-        
-        <h2 className="font-semibold text-lg text-gray-700">Select Your Sector</h2>
-
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="border rounded-md pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-          />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-            🔍
+    <div className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-5
+      gap-4
+      sm:gap-6
+    ">
+      {filteredJobSectors.map((sector) => (
+        <div
+          key={sector.id}
+          onClick={() => navigate(`/job-opportunities-details/${sector.id}`)}
+          className="
+            bg-white
+            border
+            rounded-xl
+            p-4
+            sm:p-5
+            flex
+            items-center
+            gap-3
+            sm:gap-4
+            cursor-pointer
+            hover:shadow-md
+            hover:border-orange-600
+            transition
+          "
+        >
+          <span className="text-3xl sm:text-5xl">
+            {sector.icon}
           </span>
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 ">
-          {filteredJobSectors.map((sector) => (
-            <div
-              key={sector.id}
-              onClick={() => navigate(`/job-opportunities-details/${sector.id}`)}
-              className={`bg-white border rounded-xl p-5 flex items-center gap-4 transition
-                        ${"cursor-pointer hover:shadow-md hover:border-orange-600"}
-                      `}
-            >
-              <span className="text-5xl">{sector.icon}</span>
-              <div className = "flex flex-col">
-                <p className="text-xl font-bold text-gray-800">{sector.count}</p>
-                <p className="font-bold text-black"> {sector.name} </p>
-              </div>
-              
+          <div className="flex flex-col">
+            <p className="text-lg sm:text-xl font-bold text-gray-800">
+              {sector.count}
+            </p>
+            <p className="text-sm sm:text-base font-bold text-black">
+              {sector.name}
+            </p>
           </div>
-        
-      ))} 
+        </div>
+      ))}
+    </div>
 
-    </div>
-    </div>
-  );
+  </div>
+);
+
 };
 
 export default JobOpportunities;

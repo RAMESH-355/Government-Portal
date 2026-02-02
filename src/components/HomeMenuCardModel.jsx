@@ -5,7 +5,15 @@ const HomeCard = ({ image, eng_title, telugu_title, path }) => {
 
   return (
     <div
-      className="w-48 h-[460px] cursor-pointer"
+      className="
+        w-40
+        sm:w-44
+        lg:w-48
+        h-[280px]
+        sm:h-[340px]
+        lg:h-[460px]
+        cursor-pointer
+      "
       style={{ perspective: "1000px" }}
       onClick={() => navigate(path)}
     >
@@ -17,9 +25,10 @@ const HomeCard = ({ image, eng_title, telugu_title, path }) => {
           transition-transform
           duration-700
           [transform-style:preserve-3d]
-          hover:[transform:rotateY(180deg)]
+          md:hover:[transform:rotateY(180deg)]
         "
       >
+
         <div
           className="
             absolute
@@ -34,10 +43,17 @@ const HomeCard = ({ image, eng_title, telugu_title, path }) => {
           <img
             src={image}
             alt={eng_title}
-            className="h-96 w-full object-cover rounded-br-3xl"
+            className="
+              h-40
+              sm:h-48
+              lg:h-96
+              w-full
+              object-cover
+              rounded-br-3xl
+            "
           />
-          <div className="p-4 text-center">
-            <p className="text-sm font-bold text-black justify-center items-center">
+          <div className="p-2 sm:p-3 text-center">
+            <p className="text-xs sm:text-sm font-bold text-black">
               {eng_title}
             </p>
           </div>
@@ -61,10 +77,18 @@ const HomeCard = ({ image, eng_title, telugu_title, path }) => {
           <img
             src={image}
             alt={telugu_title}
-            className="h-96 w-full object-cover opacity-90 rounded-br-3xl "
+            className="
+              h-40
+              sm:h-48
+              lg:h-96
+              w-full
+              object-cover
+              opacity-90
+              rounded-br-3xl
+            "
           />
-          <div className="p-4 text-center">
-            <p className="text-sm font-bold justify-center items-center">
+          <div className="p-2 sm:p-3 text-center">
+            <p className="text-xs sm:text-sm font-bold">
               {telugu_title}
             </p>
           </div>
@@ -75,4 +99,3 @@ const HomeCard = ({ image, eng_title, telugu_title, path }) => {
 };
 
 export default HomeCard;
-

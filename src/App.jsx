@@ -19,7 +19,7 @@ const App = () => {
     <div className="min-h-screen">
       <Header />
 
-      <main className="pt-24 pb-14 h-full bg-orange-300">
+      <main className="pt-24 pb-14 h-full">
         <Routes>
           <Route 
             path="/" element={<Home />} 

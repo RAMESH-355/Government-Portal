@@ -34,6 +34,7 @@ const cards = [
   },
 ];
 
+
 const Home = () => {
   return (
     <section className="flex flex-wrap gap-3 justify-center items-center bg-full py-16 bg-gradient-to-b from-white to-lime-300 ">

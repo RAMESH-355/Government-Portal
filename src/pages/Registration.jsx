@@ -127,56 +127,78 @@ const Registration = () => {
   );
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-6 px-6">
-      <div className="flex items-center gap-3 mb-6">
-        <span
-          onClick={() => navigate("/")}
-          className="text-3xl font-bold cursor-pointer hover:text-green-600"
-        >
-          ←
-        </span>
-        <div>
-          <h1 className="text-2xl font-bold">
-            Register for Joining Skill Courses
-          </h1>
-          <p className="text-gray-500">Registrations</p>
-        </div>
-      </div>
-      <div className="flex flex-row gap-10 items-center mb-6 ml-10">
-        <h2 className="font-semibold text-lg">Select Your Sector</h2>
+  <div className="bg-gray-50 min-h-screen pt-4 sm:pt-6 px-4 sm:px-6">
 
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="border rounded-md pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-          />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-            🔍
-          </span>
-        </div>
-      </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredSectors.map((sector) => (
-          <div
-            key={sector.id}
-            onClick={() => navigate(`/registration/${sector.id}`)}
-            className="bg-white border rounded-xl p-5 flex items-center gap-4 cursor-pointer hover:shadow-md hover:border-orange-600 transition"
-          >
-            <span className="text-3xl">{sector.icon}</span>
-            <p className="font-medium text-gray-800">
-              {sector.name}
-            </p>
-          </div>
-        ))}
+
+    <div className="flex items-center gap-3 mb-4 sm:mb-6">
+      <span
+        onClick={() => navigate("/")}
+        className="text-2xl sm:text-3xl font-bold cursor-pointer hover:text-green-600"
+      >
+        ←
+      </span>
+      <div>
+        <h1 className="text-lg sm:text-2xl font-bold">
+          Register for Joining Skill Courses
+        </h1>
+        <p className="text-gray-500 text-sm sm:text-base">
+          Registrations
+        </p>
       </div>
     </div>
-  );
+
+
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 items-start sm:items-center mb-6">
+      <h2 className="font-semibold text-base sm:text-lg">
+        Select Your Sector
+      </h2>
+
+      <div className="relative w-full sm:w-64">
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full border rounded-md pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
+        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+          🔍
+        </span>
+      </div>
+    </div>
+
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {filteredSectors.map((sector) => (
+        <div
+          key={sector.id}
+          onClick={() => navigate(`/registration/${sector.id}`)}
+          className="
+            bg-white
+            border
+            rounded-xl
+            p-4
+            flex
+            items-center
+            gap-4
+            cursor-pointer
+            hover:shadow-md
+            hover:border-orange-600
+            transition
+          "
+        >
+          <span className="text-2xl sm:text-3xl">
+            {sector.icon}
+          </span>
+          <p className="font-medium text-gray-800 text-sm sm:text-base">
+            {sector.name}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+);
 };
 
 export default Registration;
-
-
-

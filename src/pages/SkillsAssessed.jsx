@@ -49,44 +49,72 @@ const SkillsAssessed = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white min-h-screen pt-6 px-6">
+  <div className="bg-white min-h-screen pt-4 sm:pt-6 px-4 sm:px-6">
 
-      <div className="flex items-center gap-4 mb-2">
-        <span
-          onClick={() => navigate("/")}
-          className="text-3xl font-bold cursor-pointer hover:text-green-600"
-        >
-          ←
-        </span>
-        <h1 className="text-2xl font-bold">
-          Skill Assessment for Courses
-        </h1>
-      </div>
-
-      <p className="text-gray-600 mb-6">Assessments</p>
-
-      <h2 className="text-lg font-semibold mb-4">Select Your Sector</h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {SECTORS.map((sector) => (
-      <div
-        key={sector.id}
-        onClick={() => navigate(`/skills-assessment/${sector.id}`)}
-        className="cursor-pointer border rounded-xl px-6 py-5 
-                  flex flex-row items-center gap-4
-                  hover:border-orange-400 hover:shadow transition"
+    <div className="flex items-center gap-3 sm:gap-4 mb-2">
+      <span
+        onClick={() => navigate("/")}
+        className="text-2xl sm:text-3xl font-bold cursor-pointer hover:text-green-600"
       >
-        <span className="text-3xl">{sector.icon}</span>
-
-        <span className="text-lg font-semibold text-gray-800">
-          {sector.name}
-        </span>
+        ←
+      </span>
+      <h1 className="text-lg sm:text-2xl font-bold">
+        Skill Assessment for Courses
+      </h1>
     </div>
-    ))}
-  </div>
+
+    <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
+      Assessments
+    </p>
+
+    <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+      Select Your Sector
+    </h2>
+
+    <div className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-4
+      gap-4
+      sm:gap-6
+    ">
+      {SECTORS.map((sector) => (
+        <div
+          key={sector.id}
+          onClick={() => navigate(`/skills-assessment/${sector.id}`)}
+          className="
+            cursor-pointer
+            border
+            rounded-xl
+            px-4
+            sm:px-6
+            py-4
+            sm:py-5
+            flex
+            items-center
+            gap-3
+            sm:gap-4
+            hover:border-orange-400
+            hover:shadow
+            transition
+          "
+        >
+          <span className="text-2xl sm:text-3xl">
+            {sector.icon}
+          </span>
+
+          <span className="text-sm sm:text-lg font-semibold text-gray-800">
+            {sector.name}
+          </span>
+        </div>
+      ))}
+    </div>
 
   </div>
-  );
+);
+
 };
 
 export default SkillsAssessed;

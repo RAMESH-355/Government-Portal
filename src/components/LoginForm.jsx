@@ -53,7 +53,7 @@ const LoginForm = () => {
         <label className="text-sm font-semibold">Username</label>
         <input
           type="email"
-          placeholder="Enter"
+          placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full border rounded-md px-4 py-2 mt-1 mb-4"
@@ -62,7 +62,7 @@ const LoginForm = () => {
         <label className="text-sm font-semibold">Password</label>
         <input
           type="password"
-          placeholder="Enter"
+          placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full border rounded-md px-4 py-2 mt-1 mb-4"
@@ -85,7 +85,7 @@ const LoginForm = () => {
           Not registered yet?
         </p>
 
-        <button className="w-full bg-orange-300 py-3 rounded-md font-semibold">
+        <button className="w-full bg-orange-300 py-3 rounded-md font-semibold" onClick = {() => navigate(`/employerzone`) } >
           Register as {role?.charAt(0).toUpperCase() + role?.slice(1)}
         </button>
       </div>
